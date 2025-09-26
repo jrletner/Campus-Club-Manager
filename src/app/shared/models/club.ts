@@ -23,7 +23,9 @@ export function toPlainClub(c: Club): Club {
     id: c.id,
     name: c.name,
     capacity: c.capacity,
+    // For each member, build an object
     members: c.members.map((m) => ({ id: m.id, name: m.name })),
+    // For each event, build an object
     events: c.events.map((e) => ({
       id: e.id,
       title: e.title,
