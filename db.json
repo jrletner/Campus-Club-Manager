@@ -1,0 +1,61 @@
+{
+  "clubs": [
+    {
+      "id": "c-robotics",
+      "name": "Robotics Club",
+      "capacity": 6,
+      "members": [
+        {
+          "id": "u-1756686738757",
+          "name": "alex"
+        },
+        {
+          "id": "u-taylor",
+          "name": "taylor"
+        },
+        {
+          "id": "m-r4",
+          "name": "Blake"
+        },
+        {
+          "id": "m-r5",
+          "name": "Robin"
+        },
+        {
+          "id": "m-r6",
+          "name": "Shawn"
+        }
+      ],
+      "events": [
+        {
+          "id": "e-r1",
+          "title": "Kickoff Night",
+          "dateIso": "2025-09-10",
+          "capacity": 40,
+          "description": "Project ideas and team formation"
+        },
+        {
+          "id": "e-r2",
+          "title": "Arduino Workshop",
+          "dateIso": "2025-10-05",
+          "capacity": 20,
+          "description": "Intro to microcontrollers"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "u-admin",
+      "username": "admin",
+      "pinHash": "$2b$10$1Yw87BCvTT4YjQt6m9Tj1.ZUOSAQ6f/GofojUc/VAY.GQwFbYwFl2",
+      "isAdmin": true
+    },
+    {
+      "id": "u-user",
+      "username": "user",
+      "pinHash": "$2b$10$sfjRYmqaJvjin8qeKeX88eRy/8HlYrzsR.7pNvYsiP5ctBdh9C8k6",
+      "isAdmin": false
+    }
+  ]
+}
