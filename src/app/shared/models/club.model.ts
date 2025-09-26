@@ -1,5 +1,5 @@
-import { EventItem } from './event-item';
-import { Member } from './member';
+import { EventItem } from './event-item.model';
+import { Member } from './member.model';
 
 export interface Club {
   id: string;
