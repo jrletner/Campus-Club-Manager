@@ -39,9 +39,7 @@ function seedUsersIfEmpty() {
   if (Array.isArray(users) && users.length > 0) return;
   const seed = [
     { id: 'u-admin', username: 'admin', pin: '1234', isAdmin: true },
-    { id: 'u-jordan', username: 'jordan', pin: '1111', isAdmin: false },
-    { id: 'u-taylor', username: 'taylor', pin: '2222', isAdmin: false },
-    { id: 'u-alex', username: 'alex', pin: '3333', isAdmin: false },
+    { id: 'u-user', username: 'user', pin: '1234', isAdmin: false },
   ];
   const hashed = seed.map((u) => ({
     id: u.id,
