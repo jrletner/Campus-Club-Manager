@@ -20,7 +20,7 @@ export class AppComponent {
   showPin = false;
 
   // Dyanmic page summary text showin in the subheader
-  pageSummy = computed(() => {
+  pageSummary = computed(() => {
     const url = this.currentUrl();
     if (!url) return '';
     if (url === '/' || url.startsWith('/?')) {
