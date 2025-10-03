@@ -1,27 +1,43 @@
 import { Injectable, signal } from '@angular/core';
 
-export type Toast = {
-  id: number;
-  kind: 'success' | 'error' | 'info';
-  text: string;
-};
+export type ToastType = 'success' | 'error' | 'info' | 'danger';
 
-@Injectable({
-  providedIn: 'root',
-})
+export interface Toast {
+  id: string;
+  type: ToastType;
+  message: string;
+  timeoutMs: number;
+}
+
+@Injectable({ providedIn: 'root' })
 export class ToastService {
-  #nextId = 1;
-  readonly toasts = signal<Toast[]>([]);
+  toasts = signal<Toast[]>([]);
 
-  show(t: Omit<Toast, 'id'>) {
-    const id = this.#nextId++;
-    const toast: Toast = { id, ...t };
-    this.toasts.update((list) => [toast, ...list]);
-    // auto dismiss
-    setTimeout(() => this.dismiss(id), 4000);
+  show(type: ToastType, message: string, timeoutMs = 3500) {
+    const id = crypto.randomUUID();
+    const toast: Toast = { id, type, message, timeoutMs };
+    this.toasts.update((list) => [...list, toast]);
+    setTimeout(() => this.dismiss(id), timeoutMs);
+    return id;
   }
 
-  dismiss(id: number) {
+  success(message: string, timeoutMs?: number) {
+    return this.show('success', message, timeoutMs);
+  }
+
+  error(message: string, timeoutMs?: number) {
+    return this.show('error', message, timeoutMs ?? 4500);
+  }
+
+  info(message: string, timeoutMs?: number) {
+    return this.show('info', message, timeoutMs);
+  }
+
+  danger(message: string, timeoutMs?: number) {
+    return this.show('danger', message, timeoutMs);
+  }
+
+  dismiss(id: string) {
     this.toasts.update((list) => list.filter((t) => t.id !== id));
   }
 

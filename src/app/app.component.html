@@ -1,1 +1,48 @@
-<router-outlet></router-outlet>
+<header class="app-header">
+  <div class="" container app-header-inner>
+    <div class="brand">
+      <span class="badge">CC</span>
+    </div>
+    <nav class="top-nav">
+      <a routerLink="/" class="nav-pill">Home</a>
+      @if (authSvc.isAdmin()) { <a routerLink="/clubs/new">New Club</a>} @if
+      (authSvc.isAdmin()) { <a routerLink="/admin/users">Users</a>} @if
+      (authSvc.isAdmin()){<a routerLink="/tools">Tools</a>} @if
+      (!authSvc.user()) {<a routerLink="/login">Sign in</a>} @else {
+      <span class="current-user" title="Current user"
+        >👤 {{ authSvc.user()?.username }}@if (authSvc.isAdmin()) {
+        <span class="chip -danger" style="margin-left: 0.5rem">Admin</span>
+        }</span
+      >
+      <button class="btn btn-ghost btn-sm" (click)="showPin = !showPin">
+        Change PIN
+      </button>
+      <button class="btn btn-outline" (click)="onLogout()">Logout</button>
+      }
+    </nav>
+  </div>
+  <div style="border-top: 1px solid var(--border)"></div>
+</header>
+
+<!-- Infrastructure components (files appear in Class 18) -->
+<!-- <app-loading-bar [active]="clubSvc.loading()"></app-loading-bar>
+<app-error-banner
+  [message]="clubSvc.error()"
+  (retry)="onRetry()"
+  (dismiss)="clubSvc.error.set(null)"
+></app-error-banner>
+
+<main class="app-main container">
+  @if (showPin) {
+  <div class="modal-overlay" aria-modal="true" role="dialog">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <app-change-pin (close)="showPin = false" />
+    </div>
+  </div>
+  }
+  <router-outlet />
+</main> -->
+
+<!-- <app-toast-container /> -->
+
+<app-footer />
