@@ -19,7 +19,7 @@ export class AppComponent {
   private currentUrl = signal<string>('');
   showPin = false;
 
-  // Dyanmic page summary text showin in the subheader
+  // Dynamic page summary text show in in the subheader
   pageSummary = computed(() => {
     const url = this.currentUrl();
     if (!url) return '';
