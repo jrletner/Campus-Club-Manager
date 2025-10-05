@@ -29,6 +29,7 @@
 .app-header {
   display: grid;
   gap: 0.25rem;
+  /* Soft purple wash behind the header, similar to Members overview */
   background: radial-gradient(
       1200px 800px at 0% 100%,
       rgba(99, 102, 241, 0.1),
@@ -50,6 +51,8 @@
 .app-main {
   padding-block: 1rem;
 }
+
+/* Modal overlay for Change PIN */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -61,13 +64,15 @@
   z-index: 1000;
 }
 .modal {
-  background: #fff;
+  background: #fff; /* solid, non-transparent */
   border: 1px solid var(--border);
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   padding: 1rem;
   width: min(92vw, 420px);
 }
+
+/* Header brand badge ("CC") */
 .brand .badge {
   display: inline-flex;
   align-items: center;
@@ -76,15 +81,17 @@
   height: 36px;
   padding: 0 0.4rem;
   border-radius: 10px;
-  background: var(--primary-700);
-  color: #fff;
+  background: var(--primary-700); /* dark purple */
+  color: #fff; /* bold white text */
   font-weight: 800;
   line-height: 1;
 }
+
+/* Purple-tinted header links to echo Members overview styling */
 .app-header .top-nav a {
-  color: #3730a3;
-  background: rgba(99, 102, 241, 0.08);
-  border: 1px solid #c7d2fe;
+  color: #3730a3; /* indigo-800 */
+  background: rgba(99, 102, 241, 0.08); /* light indigo wash */
+  border: 1px solid #c7d2fe; /* indigo-200 */
   padding: 0.35rem 0.6rem;
   border-radius: 10px;
   transition: background 0.15s ease, color 0.15s ease, box-shadow 0.2s ease,

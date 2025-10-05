@@ -1,14 +1,17 @@
 <header class="app-header">
-  <div class="" container app-header-inner>
+  <div class="container app-header-inner">
     <div class="brand">
       <span class="badge">CC</span>
+      <span>Campus Club Manager</span>
     </div>
     <nav class="top-nav">
       <a routerLink="/" class="nav-pill">Home</a>
-      @if (authSvc.isAdmin()) { <a routerLink="/clubs/new">New Club</a>} @if
-      (authSvc.isAdmin()) { <a routerLink="/admin/users">Users</a>} @if
-      (authSvc.isAdmin()){<a routerLink="/tools">Tools</a>} @if
-      (!authSvc.user()) {<a routerLink="/login">Sign in</a>} @else {
+      @if (authSvc.isAdmin()) { <a routerLink="/clubs/new">New Club</a> } @if
+      (authSvc.isAdmin()) { <a routerLink="/admin/users">Users</a> } @if
+      (authSvc.isAdmin()) { <a routerLink="/tools">Tools</a> } @if
+      (!authSvc.user()) {
+      <a routerLink="/login">Sign in</a>
+      } @else {
       <span class="current-user" title="Current user"
         >👤 {{ authSvc.user()?.username }}@if (authSvc.isAdmin()) {
         <span class="chip -danger" style="margin-left: 0.5rem">Admin</span>
@@ -24,12 +27,18 @@
   <div style="border-top: 1px solid var(--border)"></div>
 </header>
 
-<!-- Infrastructure components (files appear in Class 18) -->
-<!-- <app-loading-bar [active]="clubSvc.loading()"></app-loading-bar>
+<div class="subheader">
+  <div class="inner">
+    <p class="page-summary">{{ pageSummary() }}</p>
+  </div>
+  <div style="border-top: 1px solid var(--border); opacity: 0.5"></div>
+</div>
+<!--
+<app-loading-bar [active]="svc.loading()"></app-loading-bar>
 <app-error-banner
-  [message]="clubSvc.error()"
+  [message]="svc.error()"
   (retry)="onRetry()"
-  (dismiss)="clubSvc.error.set(null)"
+  (dismiss)="svc.error.set(null)"
 ></app-error-banner>
 
 <main class="app-main container">
@@ -41,8 +50,8 @@
   </div>
   }
   <router-outlet />
-</main> -->
+</main>
 
-<!-- <app-toast-container /> -->
+<app-toast-container /> -->
 
 <app-footer />
